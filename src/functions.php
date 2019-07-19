@@ -47,7 +47,6 @@ function task3($num1, $num2)
                 } else {
                     $value = $i * $k;
                 }
-
                 echo '<td>' . $value . '</td>';
             }
             echo '</tr>';
@@ -60,22 +59,18 @@ function task3($num1, $num2)
 
 function task4(): array
 {
-    $arrDateTimeList = [
+    return [
         'current' => date('d.m.Y H:i:s'),
         'unix' => mktime(0, 0, 0, 02, 24, 2016)
     ];
-
-    return $arrDateTimeList;
 }
 
 function task5(): array
 {
-    $arrStringList = [
+    return [
         str_ireplace('К', '', 'Карл у Клары украл Кораллы'),
         str_replace('Две', 'Три', 'Две бутылки лимонада')
     ];
-
-    return $arrStringList;
 }
 
 function createFile(string $text, string $fileName)
