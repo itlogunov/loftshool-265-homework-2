@@ -18,34 +18,55 @@ function task2(...$args)
 {
     $sum = 0;
     $operator = array_shift($args);
+    $strExpression = 'Результат: ';
 
     if ($operator == '+') {
         foreach ($args as $value) {
             $sum += $value;
+            $strExpression .= $value . ' + ';
+        }
+    } elseif ($operator == '-') {
+        foreach ($args as $key => $value) {
+            if ($key == 0) {
+                $sum = $value;
+            } else {
+                $sum -= $value;
+            }
+            $strExpression .= $value . ' - ';
         }
     } elseif ($operator == '*') {
         $sum = 1;
         foreach ($args as $value) {
             $sum *= $value;
+            $strExpression .= $value . ' * ';
+        }
+    } elseif ($operator == '/') {
+        foreach ($args as $key => $value) {
+            if ($key == 0) {
+                $sum = $value;
+            } else {
+                $sum /= $value;
+            }
+            $strExpression .= $value . ' / ';
         }
     }
 
-    return $sum;
+    return substr($strExpression, 0, -2) . ' = ' . $sum;
 }
 
 function task3($num1, $num2)
 {
     if (is_int($num1) && is_int($num2)) {
         echo '<table>';
-        for ($i = 1; $i <= $num1; $i++) {
+        for ($rows = 1; $rows <= $num1; $rows++) {
             echo '<tr>';
-            for ($k = 1; $k <= $num2; $k++) {
-                if (($i % 2 == 0) && ($k % 2 == 0)) {
-                    $value = '(' . $i * $k . ')';
-                } elseif (($i % 2 != 0) && ($k % 2 != 0)) {
-                    $value = '[' . $i * $k . ']';
+            for ($cols = 1; $cols <= $num2; $cols++) {
+                if (($rows % 2 == 0) && ($cols % 2 == 0)) {
+                    $value = '(' . $rows * $cols . ')';
+                } elseif (($rows % 2 != 0) && ($cols % 2 != 0)) {
+                    $value = '[' . $rows * $cols . ']';
                 } else {
-                    $value = $i * $k;
+                    $value = $rows * $cols;
                 }
                 echo '<td>' . $value . '</td>';
             }
@@ -78,11 +99,15 @@ function createFile(string $text, string $fileName)
     file_put_contents($fileName, $text);
 }
 
+function readFileByPath(string $fileName)
+{
+    return file_get_contents($fileName);
+}
+
 function task6(string $fileName)
 {
     if (file_exists($fileName)) {
-        $text = file_get_contents($fileName);
-        echo $text;
+        echo readFileByPath($fileName);
     } else {
         echo 'Ошибка, файл не найден!';
     }

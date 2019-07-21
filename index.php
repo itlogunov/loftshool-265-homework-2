@@ -18,6 +18,9 @@ echo $result;
  * Задание #2
  */
 $result = task2('+', 1, 2, 3, 5.2);
+$result = task2('-', 15, 5);
+$result = task2('*', 2, 3);
+$result = task2('/', 20, 5, 2);
 echo $result;
 
 /**
@@ -29,13 +32,15 @@ task3(8, 10);
  * Задание 4
  */
 $arrDateTimeList = task4();
-print_r($arrDateTimeList);
+echo 'current: ' . $arrDateTimeList['current'] . '<br>';
+echo 'unix: ' . $arrDateTimeList['unix'] . '<br>';
 
 /**
  * Задание 5
  */
 $arrStringList = task5();
-print_r($arrStringList);
+echo $arrStringList[0] . '<br>';
+echo $arrStringList[1] . '<br>';
 
 /**
  * Задание 6
