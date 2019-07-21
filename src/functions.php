@@ -8,9 +8,9 @@ function task1(array $arrStringList, bool $return = false)
     }
 
     if ($return) {
-        return $htmlString;
-    } else {
         echo $htmlString;
+    } else {
+        return $htmlString;
     }
 }
 

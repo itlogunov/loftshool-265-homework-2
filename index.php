@@ -10,8 +10,9 @@ $arrStringList = [
     'вторая строка',
     'третья строка'
 ];
-task1($arrStringList);
-$result = task1($arrStringList, true);
+task1($arrStringList, true);
+$result = task1($arrStringList);
+echo $result;
 
 /**
  * Задание #2
